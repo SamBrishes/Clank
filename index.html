@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>PHP WebSockets</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            const socket = new WebSocket("ws://sockets.ls:4000/sockets.php");
+
+            socket.onopen = function(event) {
+                console.log(event);
+                socket.send("Hellow PHP Socket!");
+            };
+            socket.onmessage = function(event) {
+                console.log(event);
+            };
+            socket.onerror = function() {
+                console.log("Oh No!");
+            };
+        </script>
+    </body>
+</html>
